@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import baseStyles from './styles/baseStyles.css';
 import Navbar from './components/Navbar';
+import GameGrid from './components/GameGrid';
 import mapObjects from './loadMaps';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   return (
     <React.Fragment>
       <Navbar />
+      <GameGrid maps={maps} />
     </React.Fragment>
   );
 }

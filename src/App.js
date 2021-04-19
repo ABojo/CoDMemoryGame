@@ -6,11 +6,15 @@ import mapObjects from './loadMaps';
 
 function App() {
   const [maps, setMaps] = useState(mapObjects);
+  const [activeMaps, setActiveMaps] = useState(mapObjects);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
+  console.log(activeMaps);
   return (
     <React.Fragment>
       <Navbar />
-      <GameGrid maps={maps} />
+      <GameGrid maps={activeMaps} />
     </React.Fragment>
   );
 }

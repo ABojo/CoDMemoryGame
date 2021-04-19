@@ -1,0 +1,15 @@
+.navbar {
+  background-color: rgb(30, 30, 30);
+  padding: 2rem;
+}
+
+.navbar__title {
+  color: white;
+  font-weight: 600;
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    text-align: center;
+  }
+}

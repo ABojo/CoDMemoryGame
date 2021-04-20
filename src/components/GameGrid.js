@@ -6,7 +6,6 @@ function GameGrid(props) {
 
   const showMessage = async (gameIsActive, map) => {
     const instructions = document.createElement('div');
-    instructions.style.animationDuration = '2s';
     instructions.className = 'instructions';
 
     if (gameIsActive) {

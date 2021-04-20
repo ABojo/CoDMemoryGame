@@ -27,8 +27,12 @@ body {
   text-align: center;
   z-index: 10;
   animation: instructions;
-  animation-duration: 5s;
+  animation-duration: 3s;
   font-weight: 600;
+}
+
+.instructions.lose {
+  background-color: #e74c3c;
 }
 
 @keyframes instructions {

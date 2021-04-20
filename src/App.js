@@ -31,8 +31,10 @@ function App() {
   const handleMapClick = (map) => {
     if (clickedMaps.includes(map)) {
       resetGame();
+      return false;
     } else {
       continueGame(map);
+      return true;
     }
   };
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import baseStyles from './styles/baseStyles.css';
 import Navbar from './components/Navbar';
 import GameGrid from './components/GameGrid';
+import Scorebox from './components/Scorebox';
 import mapObjects from './getMaps';
 import getRandomMaps from './randomMaps';
 
@@ -39,6 +40,7 @@ function App() {
   return (
     <React.Fragment>
       <Navbar />
+      <Scorebox currentScore={currentScore} highScore={highScore} />
       <GameGrid maps={visibleMaps} onMapClick={handleMapClick} />
     </React.Fragment>
   );

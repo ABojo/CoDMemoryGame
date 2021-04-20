@@ -1,0 +1,51 @@
+.scorebox {
+  text-align: center;
+  width: 90%;
+  max-width: 200rem;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+}
+
+.scorebox__instructions {
+  color: white;
+  font-weight: 300;
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.scorebox__scores {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 2;
+}
+.scorebox__scores > * {
+  font-weight: 500;
+}
+
+.score-high {
+  color: #fdcb6e;
+  margin-top: 1rem;
+}
+
+@media (max-width: 500px) {
+  .scorebox__scores {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative;
+    z-index: 2;
+    top: 0;
+    right: 0;
+  }
+}

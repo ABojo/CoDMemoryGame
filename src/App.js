@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import baseStyles from './styles/baseStyles.css';
 import Navbar from './components/Navbar';
 import GameGrid from './components/GameGrid';
 import Scorebox from './components/Scorebox';
 import mapObjects from './getMaps';
 import getRandomMaps from './randomMaps';
+import delay from './delay';
 
 function App() {
   const [visibleMaps, setVisibleMaps] = useState(getRandomMaps(mapObjects));
@@ -13,7 +14,6 @@ function App() {
   const [highScore, setHighScore] = useState(0);
 
   const resetGame = () => {
-    console.log('Game over you ended with a score of ' + currentScore);
     setVisibleMaps(getRandomMaps(mapObjects));
     setCurrentScore(0);
     setClickedMaps([]);
@@ -21,7 +21,6 @@ function App() {
 
   const continueGame = (map) => {
     const newScore = currentScore + 1;
-    console.log(`+1 point! Your score is now ${newScore}`);
     setClickedMaps([...clickedMaps, map]);
     setCurrentScore(newScore);
     setVisibleMaps(getRandomMaps(mapObjects));
@@ -39,6 +38,9 @@ function App() {
 
   return (
     <React.Fragment>
+      <div className="instructions">
+        If you click the same map twice your score will be reset to zero!
+      </div>
       <Navbar />
       <Scorebox currentScore={currentScore} highScore={highScore} />
       <GameGrid maps={visibleMaps} onMapClick={handleMapClick} />

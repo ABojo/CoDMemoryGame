@@ -13,19 +13,41 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
 
-  const resetGame = () => {
+  const removeMaps = () => {
+    setVisibleMaps([]);
+  };
+
+  const randomizeMaps = () => {
     setVisibleMaps(getRandomMaps(mapObjects));
+  };
+
+  const resetScore = () => {
     setCurrentScore(0);
+  };
+
+  const resetClickedMaps = () => {
     setClickedMaps([]);
   };
 
-  const continueGame = (map) => {
-    const newScore = currentScore + 1;
-    setClickedMaps([...clickedMaps, map]);
-    setCurrentScore(newScore);
-    setVisibleMaps(getRandomMaps(mapObjects));
+  const incrementScore = () => {
+    setCurrentScore(currentScore + 1);
+    if (currentScore + 1 > highScore) setHighScore(currentScore + 1);
+  };
 
-    if (newScore > highScore) setHighScore(newScore);
+  const addClickedMap = (map) => {
+    setClickedMaps([...clickedMaps, map]);
+  };
+
+  const resetGame = () => {
+    randomizeMaps();
+    resetScore();
+    resetClickedMaps();
+  };
+
+  const continueGame = (map) => {
+    incrementScore();
+    addClickedMap(map);
+    randomizeMaps();
   };
 
   const handleMapClick = (map) => {

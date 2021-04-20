@@ -39,10 +39,9 @@ body {
 
 .lds-ring {
   display: inline-block;
-  position: fixed;
-  top: 50%;
+  position: relative;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 }
 .lds-ring div {
   box-sizing: border-box;
@@ -67,10 +66,10 @@ body {
 }
 @keyframes lds-ring {
   0% {
-    transform: rotate(0deg);
+    transform: translateX(-50%) rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translateX(-50%) rotate(360deg);
   }
 }
 

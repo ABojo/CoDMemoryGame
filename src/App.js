@@ -6,7 +6,6 @@ import Scorebox from './components/Scorebox';
 import mapObjects from './getMaps';
 import getRandomMaps from './randomMaps';
 import showMessage from './showMessage';
-import showLoader from './showLoader';
 import delay from './delay';
 
 function App() {
@@ -14,10 +13,7 @@ function App() {
   const [clickedMaps, setClickedMaps] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-
-  const removeMaps = () => {
-    setVisibleMaps([]);
-  };
+  const [isLoading, setLoading] = useState(true);
 
   const randomizeMaps = () => {
     setVisibleMaps(getRandomMaps(mapObjects));
@@ -52,6 +48,7 @@ function App() {
     }
 
     randomizeMaps();
+    setLoading(true);
   };
 
   //Show instructions message after component is mounted
@@ -62,11 +59,30 @@ function App() {
     );
   }, []);
 
+  //Runs spinner for two seconds after mount and update
+  useEffect(() => {
+    const spin = async () => {
+      await delay(2000);
+      setLoading(false);
+    };
+
+    spin();
+  });
+
   return (
     <React.Fragment>
       <Navbar />
       <Scorebox currentScore={currentScore} highScore={highScore} />
-      <GameGrid maps={visibleMaps} onMapClick={handleMapClick} />
+      {isLoading ? (
+        <div className="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      ) : (
+        <GameGrid maps={visibleMaps} onMapClick={handleMapClick} />
+      )}
     </React.Fragment>
   );
 }

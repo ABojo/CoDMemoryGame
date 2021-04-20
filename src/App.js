@@ -5,7 +5,7 @@ import GameGrid from './components/GameGrid';
 import Scorebox from './components/Scorebox';
 import mapObjects from './getMaps';
 import getRandomMaps from './randomMaps';
-import delay from './delay';
+import showMessage from './showMessage';
 
 function App() {
   const [visibleMaps, setVisibleMaps] = useState(getRandomMaps(mapObjects));
@@ -53,10 +53,10 @@ function App() {
   const handleMapClick = (map) => {
     if (clickedMaps.includes(map)) {
       resetGame();
-      return false;
+      showMessage(false, `You already clicked ${map.name}, game over!`);
     } else {
       continueGame(map);
-      return true;
+      showMessage(true, `You got a point for ${map.name}, good job!`);
     }
   };
 

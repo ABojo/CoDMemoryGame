@@ -16,8 +16,8 @@ body {
 
 .instructions {
   color: white;
-  background-color: green;
-  position: absolute;
+  background-color: #2ecc71;
+  position: fixed;
   top: -10%;
   left: 50%;
   transform: translateX(-50%);
@@ -28,6 +28,7 @@ body {
   z-index: 10;
   animation: instructions;
   animation-duration: 5s;
+  font-weight: 600;
 }
 
 @keyframes instructions {

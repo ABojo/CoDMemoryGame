@@ -6,6 +6,7 @@ import Scorebox from './components/Scorebox';
 import mapObjects from './getMaps';
 import getRandomMaps from './randomMaps';
 import showMessage from './showMessage';
+import showLoader from './showLoader';
 
 function App() {
   const [visibleMaps, setVisibleMaps] = useState(getRandomMaps(mapObjects));
@@ -38,26 +39,18 @@ function App() {
     setClickedMaps([...clickedMaps, map]);
   };
 
-  const resetGame = () => {
-    randomizeMaps();
-    resetScore();
-    resetClickedMaps();
-  };
-
-  const continueGame = (map) => {
-    incrementScore();
-    addClickedMap(map);
-    randomizeMaps();
-  };
-
-  const handleMapClick = (map) => {
+  const handleMapClick = async (map) => {
     if (clickedMaps.includes(map)) {
-      resetGame();
+      resetScore();
+      resetClickedMaps();
       showMessage(false, `You already clicked ${map.name}, game over!`);
     } else {
-      continueGame(map);
+      incrementScore();
+      addClickedMap(map);
       showMessage(true, `You got a point for ${map.name}, good job!`);
     }
+
+    randomizeMaps();
   };
 
   return (

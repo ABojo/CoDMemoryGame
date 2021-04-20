@@ -59,14 +59,13 @@ function App() {
     );
   }, []);
 
-  //Runs spinner for two seconds after mount and update
+  //Runs spinner for two seconds after mount or update
   useEffect(() => {
-    const spin = async () => {
-      await delay(2000);
-      setLoading(false);
-    };
-
-    spin();
+    if (isLoading) {
+      delay(1500).then(() => {
+        setLoading(false);
+      });
+    }
   });
 
   return (

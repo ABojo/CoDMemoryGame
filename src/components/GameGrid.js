@@ -2,7 +2,7 @@ import delay from '../delay';
 import styles from '../styles/gridStyles.css';
 
 function GameGrid(props) {
-  const { maps, onMapClick } = props;
+  const { maps, onMapClick, test } = props;
 
   return (
     <div className="game-grid">

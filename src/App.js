@@ -7,6 +7,7 @@ import mapObjects from './getMaps';
 import getRandomMaps from './randomMaps';
 import showMessage from './showMessage';
 import showLoader from './showLoader';
+import delay from './delay';
 
 function App() {
   const [visibleMaps, setVisibleMaps] = useState(getRandomMaps(mapObjects));
@@ -53,11 +54,16 @@ function App() {
     randomizeMaps();
   };
 
+  //Show instructions message after component is mounted
+  useEffect(() => {
+    showMessage(
+      true,
+      'If you click the same map twice your score will be reset to zero!'
+    );
+  }, []);
+
   return (
     <React.Fragment>
-      <div className="instructions">
-        If you click the same map twice your score will be reset to zero!
-      </div>
       <Navbar />
       <Scorebox currentScore={currentScore} highScore={highScore} />
       <GameGrid maps={visibleMaps} onMapClick={handleMapClick} />

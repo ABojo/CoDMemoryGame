@@ -51,7 +51,10 @@ const images = [
 ];
 
 const mapObjects = images.map((path) => {
-  const mapName = path.slice(path.indexOf('media/') + 6, path.indexOf('.'));
+  const mapName = path.slice(
+    path.indexOf('media/') + 6,
+    path.indexOf('.', path.indexOf('.') + 1)
+  );
 
   return {
     path: path,

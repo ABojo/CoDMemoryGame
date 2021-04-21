@@ -14,6 +14,14 @@ import checkmate from './images/checkmate.png';
 import crossroads from './images/crossroads.jpg';
 import village from './images/village.png';
 import fallen from './images/fallen.png';
+import crash from './images/crash.jpg';
+import shipment from './images/shipment.jpg';
+import highrise from './images/highrise.png';
+import infection from './images/infection.png';
+import stronghold from './images/stronghold.png';
+import combine from './images/combine.png';
+import redwood from './images/redwood.jpg';
+
 import uniqid from 'uniqid';
 
 const images = [
@@ -33,6 +41,13 @@ const images = [
   crossroads,
   village,
   fallen,
+  crash,
+  shipment,
+  highrise,
+  infection,
+  stronghold,
+  combine,
+  redwood,
 ];
 
 const mapObjects = images.map((path) => {

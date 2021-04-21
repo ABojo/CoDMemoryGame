@@ -14,7 +14,7 @@ function App() {
   const [highScore, setHighScore] = useState(0);
   const [isLoading, setLoading] = useState(true);
 
-  const randomizeMaps = () => {
+  const showRandomMaps = () => {
     setVisibleMaps(randomMaps(3));
   };
 
@@ -46,7 +46,7 @@ function App() {
       showMessage(true, `You got a point for ${map.name}, good job!`);
     }
 
-    randomizeMaps();
+    showRandomMaps();
     setLoading(true);
   };
 
@@ -56,7 +56,8 @@ function App() {
       true,
       'If you click the same map twice your score will be reset to zero!'
     );
-    randomizeMaps();
+
+    showRandomMaps();
   }, []);
 
   //Runs spinner for two seconds after mount or update

@@ -5,6 +5,8 @@
   width: 90%;
   margin: 0 auto;
   max-width: 200rem;
+  position: relative;
+  animation: slideIn 1s;
 }
 .game-grid__item {
   width: 100%;
@@ -42,4 +44,16 @@
 .game-grid__image {
   width: 100%;
   height: 100%;
+}
+
+@keyframes slideIn {
+  0% {
+    left: -100%;
+    transform: scale(0.1);
+  }
+
+  100% {
+    left: 0%;
+    transform: scale(1);
+  }
 }

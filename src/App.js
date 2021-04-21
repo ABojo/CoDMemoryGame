@@ -3,20 +3,19 @@ import baseStyles from './styles/baseStyles.css';
 import Navbar from './components/Navbar';
 import GameGrid from './components/GameGrid';
 import Scorebox from './components/Scorebox';
-import mapObjects from './getMaps';
-import getRandomMaps from './randomMaps';
+import randomMaps from './randomMaps';
 import showMessage from './showMessage';
 import delay from './delay';
 
 function App() {
-  const [visibleMaps, setVisibleMaps] = useState(getRandomMaps(mapObjects));
+  const [visibleMaps, setVisibleMaps] = useState([]);
   const [clickedMaps, setClickedMaps] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [isLoading, setLoading] = useState(true);
 
   const randomizeMaps = () => {
-    setVisibleMaps(getRandomMaps(mapObjects));
+    setVisibleMaps(randomMaps(3));
   };
 
   const resetScore = () => {
@@ -57,6 +56,7 @@ function App() {
       true,
       'If you click the same map twice your score will be reset to zero!'
     );
+    randomizeMaps();
   }, []);
 
   //Runs spinner for two seconds after mount or update
